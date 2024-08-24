@@ -49,10 +49,30 @@
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s ease;
+            cursor: pointer;
         }
 
         .cta-button:hover {
             background-color: #c0392b;
+        }
+
+        #embed {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+        }
+
+        .calBookingCloseIcn {
+            position: absolute;
+            left: 84%;
+            top: 120px;
+            z-index: 32;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -62,9 +82,37 @@
         <p>Your go-to consultation firm for precision marketing, business development, and strategic growth solutions.</p>
         <p class="countdown">We are launching soon!</p>
         <p>Stay tuned for more updates.</p>
-
-<input id="buttonconfig" style="font-size: var(--crm-small-font-size);color:#ffffff;background-color:#e74d3c;" type="button" value="Schedule&#x20;a&#x20;Consultation"><script type="text/javascript">document.getElementById("buttonconfig").onclick=function(){renderIframe();document.getElementById("embed").style.display="block"}</script><div id="embed" style="display: none;position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(0,0,0,0.4);z-index:1000;"><img src="https://static.zohocdn.com/crm/images/closeicon_59a5a09c5d664c355dbfcedb083c86a4_.png" style="position: absolute;left: 84%;top: 120px;z-index: 32;" class="calBookingCloseIcn" onclick="document.getElementById('embed').getElementsByTagName('iframe')[0].remove(); document.getElementById('embed').style.display='none';document.getElementsByTagName('body')[0].style.overflow='';"/></div><script>function renderIframe(){document.getElementsByTagName("body")[0].style.overflow="hidden";var url='https://crm.zoho.eu/bookings/30minutesmeeting?rid=2a9b1beeac6a4ddcb7d7a8829ef73860f3876d379e58ef9b4d75f07cc96ec6c09943609652ab2aefdc65476873270348gid05c6a24f7e5995ce00993e01ed7270cb43d7bd7e5dc003b6fafda0c6807c037f&option=embed';var JSElement=document.createElement("iframe");var width="";if (window.innerWidth <= 1024) {width = "90%";}else{width = "1100px";}JSElement.src =url;JSElement.setAttribute("style", "width:"+width+";height:400px;position: fixed; top:100px;left:0;right:0;margin: 0 auto;background: #fff;border:1px solid #c0c6cc;border-radius: 5px");document.getElementById("embed").appendChild(JSElement);}</script>
         
+        <!-- Updated CTA Button -->
+        <input id="buttonconfig" class="cta-button" type="button" value="Schedule a Consultation">
+        
+        <!-- Embedded Booking Iframe -->
+        <div id="embed">
+            <img src="https://static.zohocdn.com/crm/images/closeicon_59a5a09c5d664c355dbfcedb083c86a4_.png" class="calBookingCloseIcn" onclick="document.getElementById('embed').getElementsByTagName('iframe')[0].remove(); document.getElementById('embed').style.display='none';document.getElementsByTagName('body')[0].style.overflow='';"/>
+        </div>
+        
+        <!-- Scripts -->
+        <script type="text/javascript">
+            document.getElementById("buttonconfig").onclick = function() {
+                renderIframe();
+                document.getElementById("embed").style.display = "block";
+            };
+
+            function renderIframe() {
+                document.getElementsByTagName("body")[0].style.overflow = "hidden";
+                var url = 'https://crm.zoho.eu/bookings/30minutesmeeting?rid=2a9b1beeac6a4ddcb7d7a8829ef73860f3876d379e58ef9b4d75f07cc96ec6c09943609652ab2aefdc65476873270348gid05c6a24f7e5995ce00993e01ed7270cb43d7bd7e5dc003b6fafda0c6807c037f&option=embed';
+                var JSElement = document.createElement("iframe");
+                var width = "";
+                if (window.innerWidth <= 1024) {
+                    width = "90%";
+                } else {
+                    width = "1100px";
+                }
+                JSElement.src = url;
+                JSElement.setAttribute("style", "width:" + width + ";height:400px;position: fixed; top:100px;left:0;right:0;margin: 0 auto;background: #fff;border:1px solid #c0c6cc;border-radius: 5px");
+                document.getElementById("embed").appendChild(JSElement);
+            }
+        </script>
     </div>
 </body>
 </html>
